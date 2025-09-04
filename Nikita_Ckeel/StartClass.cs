@@ -35,7 +35,7 @@ namespace Nikita_Ckeel
             Console.WriteLine(a);
 
             float vastus = OsalFunktsioonid.Kalkulator(f, a);
-            Console.WriteLine(vastus);
+            Console.WriteLine(vastus);-
         }
     }
 }
