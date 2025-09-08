@@ -8,77 +8,77 @@ namespace Nikita_Ckeel
     {
         public static void Main(string[] args)
         {
-            //            Console.OutputEncoding = Encoding.UTF8;
-            //            Random rnd = new Random();
+            Console.OutputEncoding = Encoding.UTF8;
+            Random rnd = new Random();
 
-            //            Console.WriteLine("LLLLLLLLLLLLLLLLLLLLLLLLL");
+            Console.WriteLine("LLLLLLLLLLLLLLLLLLLLLLLLL");
 
 
-            //            int[] arvud = new int[10];
-            //            int j = 0;
-            //            while (j<10)
-            //            {
-            //                Console.WriteLine(j + 1);
-            //                arvud[j] = rnd.Next(1,101);
-            //                j++;
-            //            }
-            //            foreach (int arv in arvud)
-            //            {
-            //                Console.WriteLine(arv);
-            //            }
-            //;
-            //            Console.WriteLine("LLLLLLLLLLLLLLLLLLLLLLLLL");
+            int[] arvud = new int[10];
+            int j = 0;
+            while (j < 10)
+            {
+                Console.WriteLine(j + 1);
+                arvud[j] = rnd.Next(1, 101);
+                j++;
+            }
+            foreach (int arv in arvud)
+            {
+                Console.WriteLine(arv);
+            }
+            ;
+            Console.WriteLine("LLLLLLLLLLLLLLLLLLLLLLLLL");
 
-            //            //OSA 3 MASSIIVID, LIST, KORDUSED
+            //OSA 3 MASSIIVID, LIST, KORDUSED
 
-            //            List<string> nimed = new List<string>();
+            List<string> nimed = new List<string>();
 
-            //            for (int i = 0; i < 10; i++)
-            //            {
-            //                Console.WriteLine($"{i+1} Nimi: ");
-            //                nimed.Add(Console.ReadLine());
-            //            }
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine($"{i + 1} Nimi: ");
+                nimed.Add(Console.ReadLine());
+            }
 
-            //            foreach (string nimi in nimed)
-            //            {
-            //                Console.WriteLine(nimi);
-            //            }
+            foreach (string nimi in nimed)
+            {
+                Console.WriteLine(nimi);
+            }
 
-            //            Console.WriteLine("---");
+            Console.WriteLine("---");
 
-            //            while (true)
-            //            {
-            //                if (j < 10)
-            //                {
-            //                    Console.WriteLine(j+1);
-            //                    j ++;
-            //                }
-            //                else
-            //                {
-            //                    break;
-            //                }
-            //            }
+            while (true)
+            {
+                if (j < 10)
+                {
+                    Console.WriteLine(j + 1);
+                    j++;
+                }
+                else
+                {
+                    break;
+                }
+            }
 
-            //            Console.WriteLine("---");
+            Console.WriteLine("---");
 
-            //            List<Isik> isikud = new List<Isik>();
-            //            int g = 0;
-            //            do
-            //            {
-            //                Console.WriteLine(g + 1);
-            //                Isik isik = new Isik();
-            //                Console.WriteLine("Esnimi: ");
-            //                isik.eesnimi = Console.ReadLine();
-            //                isikud.Add(isik);
-            //                g++;
-            //            } while (g < 10);
-            //            isikud.Sort((x, y) => x.eesnimi.CompareTo(y.eesnimi));
-            //            foreach (Isik isik in isikud)
-            //            {
-            //                Console.WriteLine("Kokku on", isikud.Count, "isikud");
-            //                isik.Prindi();
-            //                Console.WriteLine("Kolmandal kohal on", isikud[2], "isik");
-            //            }
+            List<Isik> isikud = new List<Isik>();
+            int g = 0;
+            do
+            {
+                Console.WriteLine(g + 1);
+                Isik isik = new Isik();
+                Console.WriteLine("Esnimi: ");
+                isik.eesnimi = Console.ReadLine();
+                isikud.Add(isik);
+                g++;
+            } while (g < 10);
+            isikud.Sort((x, y) => x.eesnimi.CompareTo(y.eesnimi));
+            foreach (Isik isik in isikud)
+            {
+                Console.WriteLine("Kokku on", isikud.Count, "isikud");
+                isik.Prindi();
+                Console.WriteLine("Kolmandal kohal on", isikud[2], "isik");
+            }
 
 
 
