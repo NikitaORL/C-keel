@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections;
 using System.Text;
 
@@ -8,69 +9,114 @@ namespace Nikita_Ckeel
     {
         public static void Main(string[] args)
         {
-            //3. Имена и возрасты Задача: Создайте класс Человек { string Имя; int Возраст; }.
-            //Создайте метод Статистика(Список люди), который: вычисляет сумму всех возрастов и средний возраст,
-            //находит самого старшего и самого молодого человека, возвращает эти значения в Tuple.
-            //Пользователь вводит 5 человек (имя и возраст отдельно
+            int userGuess = 0;  // Arv
+            int randomNumber = 0; // vastus (будет перезаписан внутри метода)
 
+            // Вызов метода
+            int tulemus = OsalFunktsioonid3.ArvaArv(userGuess, randomNumber);
 
-
-            Console.OutputEncoding = Encoding.UTF8;
-            List<int> vanus = new List<int>();
-            List<string> inimene = new List<string>();
-            for (int i = 0; i < 5; i++)
-            {
-                Console.WriteLine($"{i + 1}. Sisesta nimi: ");
-                string nimi = Console.ReadLine();
-                inimene.Add(nimi);
-                Console.WriteLine($"{i + 1}. Sisesta vanus: ");
-                int vanus1 = int.Parse(Console.ReadLine());
-                vanus.Add(vanus1);
-            }
-
-           
-            var result = Statistika(inimene, vanus);
-        }
-
-       
-        static (int sum, double avg, string oldest, string youngest) 
-        Statistika(List<string> inimesed, List<int> vanused)
-        {
-            int sum = 0;
-            int maxAge = vanused[0];
-            int minAge = vanused[0];
-            string oldest = inimesed[0];
-            string youngest = inimesed[0];
-            double avg = 0;
-
-            int oldest2 = vanused[0];
-            int youngest2 = vanused[0];
-
-            for (int i = 0; i < vanused.Count; i++)
-            {
-                sum += vanused[i];
-                if (vanused[i] > maxAge)
-                {
-                    maxAge = vanused[i];
-                    oldest = inimesed[i];
-                }
-                if (vanused[i] < minAge)
-                {
-                    minAge = vanused[i];
-                    youngest = inimesed[i];
-                }
-
-            }
-            avg = sum / (double)vanused.Count;
-            Console.WriteLine($"Vanuste summa: {sum}");
-            Console.WriteLine($"Vanuste keskmine: {avg}");
-            Console.WriteLine($"Kõige vanem inimene: {oldest}, Vanus: {maxAge} ");
-            Console.WriteLine($"Kõige noorem inimene: {youngest}, Vanus: {minAge}");
-            return (sum, avg, youngest, oldest);
-
+            Console.WriteLine($"Метод завершён. Последнее введённое число: {tulemus}");
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//            string tulemus = OsalFunktsioonid3.KuniMärksõnani("Ok", "Sisesta midagi:");
+
+//            Console.WriteLine("Täname! See on sinu elevant!"); ;
+//        }
+//    }
+//}
+
+
+
+
+
+
+
+
+
+
+//            //3. Имена и возрасты Задача: Создайте класс Человек { string Имя; int Возраст; }.
+//            //Создайте метод Статистика(Список люди), который: вычисляет сумму всех возрастов и средний возраст,
+//            //находит самого старшего и самого молодого человека, возвращает эти значения в Tuple.
+//            //Пользователь вводит 5 человек (имя и возраст отдельно
+
+
+
+//            Console.OutputEncoding = Encoding.UTF8;
+//            List<int> vanus = new List<int>();
+//            List<string> inimene = new List<string>();
+//            for (int i = 0; i < 5; i++)
+//            {
+//                Console.WriteLine($"{i + 1}. Sisesta nimi: ");
+//                string nimi = Console.ReadLine();
+//                inimene.Add(nimi);
+//                Console.WriteLine($"{i + 1}. Sisesta vanus: ");
+//                int vanus1 = int.Parse(Console.ReadLine());
+//                vanus.Add(vanus1);
+//            }
+
+
+//            var result = Statistika(inimene, vanus);
+//        }
+
+
+//        static (int sum, double avg, string oldest, string youngest) 
+//        Statistika(List<string> inimesed, List<int> vanused)
+//        {
+//            int sum = 0;
+//            int maxAge = vanused[0];
+//            int minAge = vanused[0];
+//            string oldest = inimesed[0];
+//            string youngest = inimesed[0];
+//            double avg = 0;
+
+//            int oldest2 = vanused[0];
+//            int youngest2 = vanused[0];
+
+//            for (int i = 0; i < vanused.Count; i++)
+//            {
+//                sum += vanused[i];
+//                if (vanused[i] > maxAge)
+//                {
+//                    maxAge = vanused[i];
+//                    oldest = inimesed[i];
+//                }
+//                if (vanused[i] < minAge)
+//                {
+//                    minAge = vanused[i];
+//                    youngest = inimesed[i];
+//                }
+
+//            }
+//            avg = sum / (double)vanused.Count;
+//            Console.WriteLine($"Vanuste summa: {sum}");
+//            Console.WriteLine($"Vanuste keskmine: {avg}");
+//            Console.WriteLine($"Kõige vanem inimene: {oldest}, Vanus: {maxAge} ");
+//            Console.WriteLine($"Kõige noorem inimene: {youngest}, Vanus: {minAge}");
+//            return (sum, avg, youngest, oldest);
+
+//        }
+//    }
+//}
 
 
 
