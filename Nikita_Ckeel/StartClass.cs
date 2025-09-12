@@ -8,21 +8,45 @@ namespace Nikita_Ckeel
     internal class StartClass
     {
         public static void Main(string[] args)
-        {
-            Random rnd = new Random();
-            Console.OutputEncoding = Encoding.UTF8;
-            OsalFunktsioonid4.kirjuta_failisse();
-            Console.WriteLine("Tekst salvestatud faili Kuud.txt");
 
-            OsalFunktsioonid4.kirjuta_failisse();
-            Console.WriteLine("Faili nimi: ");
-            string failinimi = Console.ReadLine();
+        {
+            Console.OutputEncoding = Encoding.UTF8;
+            // Вызов метода test() из Osal_Funktsioonid5
+            Osal_Funktsioonid5.test();
+
+            Console.WriteLine("Нажмите любую клавишу для выхода...");
+            Console.ReadKey();
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//            Random rnd = new Random();
+//            Console.OutputEncoding = Encoding.UTF8;
+//            OsalFunktsioonid4.kirjuta_failisse();
+//            Console.WriteLine("Tekst salvestatud faili Kuud.txt");
+
+//            OsalFunktsioonid4.kirjuta_failisse();
+//            Console.WriteLine("Faili nimi: ");
+//            string failinimi = Console.ReadLine();
+//        }
+//    }
+//}
 //            {
 //                int[,] tabel = OsalFunktsioonid3.GenereeriKorrutustabel(10, 10);
-                
+
 //            }
 //        }
 //    }
