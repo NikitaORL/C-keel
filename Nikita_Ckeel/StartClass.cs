@@ -9,16 +9,35 @@ namespace Nikita_Ckeel
     {
         public static void Main(string[] args)
         {
-            int userGuess = 0;  // Arv
-            int randomNumber = 0; // vastus (будет перезаписан внутри метода)
+            Random rnd = new Random();
+            Console.OutputEncoding = Encoding.UTF8;
+            OsalFunktsioonid4.kirjuta_failisse();
+            Console.WriteLine("Tekst salvestatud faili Kuud.txt");
 
-            // Вызов метода
-            int tulemus = OsalFunktsioonid3.ArvaArv(userGuess, randomNumber);
-
-            Console.WriteLine($"Метод завершён. Последнее введённое число: {tulemus}");
+            OsalFunktsioonid4.kirjuta_failisse();
+            Console.WriteLine("Faili nimi: ");
+            string failinimi = Console.ReadLine();
         }
     }
 }
+//            {
+//                int[,] tabel = OsalFunktsioonid3.GenereeriKorrutustabel(10, 10);
+                
+//            }
+//        }
+//    }
+//}
+
+//            int userGuess = 0;  // Arv
+//            int randomNumber = 0; // vastus (будет перезаписан внутри метода)
+
+//            // Вызов метода
+//            int tulemus = OsalFunktsioonid3.ArvaArv(userGuess, randomNumber);
+
+//            Console.WriteLine($"Метод завершён. Последнее введённое число: {tulemus}");
+//        }
+//    }
+//}
 
 
 
