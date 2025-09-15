@@ -1,161 +1,99 @@
-﻿
-using System;
-using System.Collections;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Nikita_Ckeel
 {
     internal class StartClass
     {
-        //public static void Main(string[] args)
+        // Списки учеников и оценок объявляем здесь, чтобы были доступны в Main
+        static List<string> opilased = new List<string>();
+        static List<List<int>> hinded = new List<List<int>>();
 
-        static Dictionary<string, string> okruugid = new Dictionary<string, string>()
-        {
-            {"Центральный", "Москва"},
-            {"Северо-Западный", "Санкт-Петербург"},
-            {"Приволжский", "Нижний Новгород"},
-            {"Южный", "Ростов-на-Дону"},
-            {"Северо-Кавказский", "Пятигорск"},
-            {"Уральский", "Екатеринбург"},
-            {"Сибирский", "Новосибирск"},
-            {"Дальневосточный", "Хабаровск"}
-        };
-
-        // --- Методы на уровне класса ---
-        static void FindStolica(string okrug)
-        {
-            if (okruugid.ContainsKey(okrug))
-            {
-                Console.WriteLine($"Столица округа {okrug}: {okruugid[okrug]}");
-            }
-            else
-            {
-                Console.WriteLine("Такого округа нет.");
-                Console.Write("Хотите добавить его в словарь? (да/нет): ");
-                string add = Console.ReadLine().ToLower();
-                if (add == "да")
-                {
-                    Console.Write("Введите столицу: ");
-                    string stolica = Console.ReadLine();
-                    okruugid[okrug] = stolica;
-                    Console.WriteLine("Добавлено!");
-                }
-            }
-        }
-
-        static void FindOkrug(string stolica)
-        {
-            foreach (var pair in okruugid)
-            {
-                if (pair.Value.ToLower() == stolica.ToLower())
-                {
-                    Console.WriteLine($"Округ столицы {stolica}: {pair.Key}");
-                    return;
-                }
-            }
-
-            Console.WriteLine("Такой столицы нет.");
-            Console.Write("Хотите добавить её в словарь? (да/нет): ");
-            string add = Console.ReadLine().ToLower();
-            if (add == "да")
-            {
-                Console.Write("Введите округ: ");
-                string okrug = Console.ReadLine();
-                okruugid[okrug] = stolica;
-                Console.WriteLine("Добавлено!");
-            }
-        }
-
-        static void Game(int rounds = 5)
-        {
-            Random rnd = new Random();
-            int correct = 0;
-            List<KeyValuePair<string, string>> pairs = new List<KeyValuePair<string, string>>(okruugid);
-
-            for (int i = 0; i < rounds; i++)
-            {
-                var pair = pairs[rnd.Next(pairs.Count)];
-                string okrug = pair.Key;
-                string stolica = pair.Value;
-                int mode = rnd.Next(2); // 0 – спросить столицу, 1 – спросить округ
-
-                if (mode == 0)
-                {
-                    Console.Write($"Какая столица у округа {okrug}? ");
-                    string answer = Console.ReadLine();
-                    if (answer.Trim().ToLower() == stolica.ToLower())
-                    {
-                        Console.WriteLine("✅ Правильно!");
-                        correct++;
-                    }
-                    else
-                    {
-                        Console.WriteLine($"❌ Неправильно. Ответ: {stolica}");
-                    }
-                }
-                else
-                {
-                    Console.Write($"Какой округ у столицы {stolica}? ");
-                    string answer = Console.ReadLine();
-                    if (answer.Trim().ToLower() == okrug.ToLower())
-                    {
-                        Console.WriteLine("✅ Правильно!");
-                        correct++;
-                    }
-                    else
-                    {
-                        Console.WriteLine($"❌ Неправильно. Ответ: {okrug}");
-                    }
-                }
-            }
-
-            double percent = (double)correct / rounds * 100;
-            Console.WriteLine($"\nРезультат: {correct} из {rounds} ({percent:F1}%)");
-        }
-
-        // --- Главный метод Main ---
         public static void Main(string[] args)
         {
+            Console.OutputEncoding = Encoding.UTF8;
+
             while (true)
             {
-                Console.WriteLine("\n--- Меню ---");
-                Console.WriteLine("1. Найти столицу по округу");
-                Console.WriteLine("2. Найти округ по столице");
-                Console.WriteLine("3. Игровой режим");
-                Console.WriteLine("4. Выход");
+                Console.WriteLine("\nMenü");
+                Console.WriteLine("Lisa opilane - sisesta '1'");
+                Console.WriteLine("Vaata keskmine hinne - sisesta '2'");
+                Console.WriteLine("Välju - sisesta '0'");
 
-                Console.Write("Ваш выбор: ");
+                Console.Write("Sa kirjutad: ");
                 string choice = Console.ReadLine();
 
                 if (choice == "1")
                 {
-                    Console.Write("Введите округ: ");
-                    string okrug = Console.ReadLine();
-                    FindStolica(okrug);
+                    Isseseisev_ülesanne.Lisa_opilane(opilased, hinded);
                 }
                 else if (choice == "2")
                 {
-                    Console.Write("Введите столицу: ");
-                    string stolica = Console.ReadLine();
-                    FindOkrug(stolica);
+                    Isseseisev_ülesanne.Keskmine_Hinne(opilased, hinded);
                 }
-                else if (choice == "3")
+                else if (choice == "0")
                 {
-                    Game(5);
-                }
-                else if (choice == "4")
-                {
-                    Console.WriteLine("Выход из программы...");
                     break;
                 }
                 else
                 {
-                    Console.WriteLine("Неверный ввод, попробуйте снова.");
+                    Console.WriteLine("Vale valik!");
                 }
             }
         }
     }
 }
+
+
+
+
+
+
+
+
+//            Console.OutputEncoding = System.Text.Encoding.UTF8;
+//            while (true)
+//            {
+//                Console.WriteLine("\n--- Меню ---");
+//                Console.WriteLine("1. Найти столицу по округу");
+//                Console.WriteLine("2. Найти округ по столице");
+//                Console.WriteLine("3. Игровой режим");
+//                Console.WriteLine("4. Выход");
+
+//                Console.Write("Ваш выбор: ");
+//                string choice = Console.ReadLine();
+
+//                if (choice == "1")
+//                {
+//                    Console.Write("Введите округ: ");
+//                    string okrug = Console.ReadLine();
+//                    OsalFunktsioonid5.FindStolica(okrug);
+//                }
+//                else if (choice == "2")
+//                {
+//                    Console.Write("Введите столицу: ");
+//                    string stolica = Console.ReadLine();
+//                    OsalFunktsioonid5.FindOkrug(stolica);
+//                }
+//                else if (choice == "3")
+//                {
+//                    OsalFunktsioonid5.Game(5);
+//                }
+//                else if (choice == "4")
+//                {
+//                    Console.WriteLine("Выход из программы...");
+//                    break;
+//                }
+//                else
+//                {
+//                    Console.WriteLine("Неверный ввод, попробуйте снова.");
+//                }
+//            }
+//        }
+//    }
+//}
 
 
 
