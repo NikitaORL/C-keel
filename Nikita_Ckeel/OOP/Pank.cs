@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Nikita_Ckeel
+namespace Nikita_Ckeel.OOP
 {
     public interface ITööline
     {
