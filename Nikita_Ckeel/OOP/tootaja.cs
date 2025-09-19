@@ -4,25 +4,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Nikita_Ckeel.OOP
+namespace Nikita_Ckeel
 {
-    internal class Töötaja : Inimine
+    public class Töötaja : Inimene
     {
-        public string Ametikoht;
-
-        public Töötaja(string nimi, int vanus, string ametikoht) : base(nimi, vanus)
-        {
-            Ametikoht = ametikoht;
-        }
-
-        public new void Tervita()
-        {
-            Console.WriteLine($"Tere! Mina olen {Nimi}, ma olen {Vanus} aastat vana ja töötan {Ametikoht}.");
-        }
+        public string Ametikoht = "Keevitaja";
+        public double Tunnitasu = 15.50;
+        public int Tunnid {  get; set; } 
 
         public void Töötan()
         {
-            Console.WriteLine($"Ma töötan {Ametikoht}.");
+            Console.WriteLine($"{Nimi} töötan ametikohal {Ametikoht}.");
+        }
+        public override void Mida_teeb()
+        {
+            Console.WriteLine($"{Nimi} töötab ametikohal.");
+        }
+        public double ArvutaPalk()
+        { 
+            return Tunnitasu * Tunnid;
         }
     }
 }

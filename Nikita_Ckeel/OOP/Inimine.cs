@@ -1,25 +1,32 @@
-﻿using System;
+﻿using Nikita_Ckeel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Nikita_Ckeel.OOP
+namespace Nikita_Ckeel
 {
-    internal class Inimine
-{
-    public string Nimi;
-    public int Vanus;
-
-    public Inimine(string nimi, int vanus)
+    public abstract class Inimene
     {
-        Nimi = nimi;
-        Vanus = vanus;
+        public string Nimi;
+        public int Vanus;
+        public Pank Konto {  get; set; }
+        public Inimene()
+        {
+            Konto = new Pank();
+        }
+        public Inimene(string nimi, int vanus)
+        {
+            Nimi = nimi;
+            Vanus = vanus;
+            Konto = new Pank();
+        }
+        public void Tervita()
+        {
+            Console.WriteLine("Tere! Mina olen " + Nimi);
+        }
+        public abstract void Mida_teeb();
     }
 
-    public void Tervita()
-    {
-        Console.WriteLine($"Tere! Mina olen {Nimi}, ma olen {Vanus} aastat vana.");
-    }
-}
 }
