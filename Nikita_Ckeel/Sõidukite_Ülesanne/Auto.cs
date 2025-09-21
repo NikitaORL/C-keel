@@ -1,11 +1,10 @@
-﻿using Nikita_Ckeel.Sõidukite_Ülesanne;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Nikita_Ckeel
+namespace Nikita_Ckeel.Sõidukite_Ülesanne
 {
     public class Auto : ISõiduk
     {
