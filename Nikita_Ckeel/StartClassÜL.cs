@@ -11,17 +11,24 @@ namespace Nikita_Ckeel
     {
         public static void Main(string[] args)
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+            // Создаём список транспорта
             List<ISõiduk> list = new List<ISõiduk>();
             double sum = 0;
 
-            string[] lines = File.ReadAllLines("transport.txt");
-            foreach (string line in lines)
+            // ✅ Данные задаём прямо в коде
+            // Формат: тип, название, расход, километры, пассажиры (для автобуса)
+            string[][] data = new string[][]
             {
-                if (line == "" || line.StartsWith("#")) continue;
+                new string[] { "авто", "Toyota", "7.5", "120", "0" },
+                new string[] { "велосипед", "Merida", "0", "25", "0" },
+                new string[] { "автобус", "Scania", "20", "300", "40" },
+                new string[] { "электросамокат", "Xiaomi", "1.2", "15", "0" }
+            };
 
-                string[] p = line.Split(';');
-                if (p.Length < 5) continue;
-
+            // Обрабатываем каждую строку данных
+            foreach (string[] p in data)
+            {
                 string type = p[0].Trim().ToLower();
                 string name = p[1].Trim();
                 double kulu = 0, km = 0;
@@ -37,6 +44,7 @@ namespace Nikita_Ckeel
                 else if (type == "электросамокат") list.Add(new Elektritouk(name, kulu, km));
             }
 
+            // Выводим все объекты и считаем общий расход
             foreach (ISõiduk t in list)
             {
                 Console.WriteLine(t.ToString());
