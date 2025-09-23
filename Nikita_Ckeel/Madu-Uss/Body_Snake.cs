@@ -10,7 +10,7 @@ namespace Nikita_Ckeel
     class Body_Snake : Figure
     {
         Direction direction;
-        public Body_Snake(Point tail, int length, Direction direction)
+        public Body_Snake(Point tail, int length, Direction _direction)
         {
             direction = _direction;
             pList = new List<Point>();
@@ -30,6 +30,46 @@ namespace Nikita_Ckeel
 
             tail.Clear();
             head.Draw();
+        }
+        public Point GetNextPoint()
+        {
+            Point head = pList.Last();
+            Point nextPoint = new Point(head);
+            nextPoint.Move(1, direction);
+            return nextPoint;
+        }
+        public void HandleKey(ConsoleKey key)
+        {
+            if (key == ConsoleKey.LeftArrow)
+            {
+                direction = Direction.LEFT;
+            }
+            else if (key == ConsoleKey.RightArrow)
+            {
+                direction = Direction.RIGHT;
+            }
+            else if (key == ConsoleKey.UpArrow)
+            {
+                direction = Direction.UP;
+            }
+            else if (key == ConsoleKey.DownArrow)
+            {
+                direction = Direction.DOWN;
+            }
+        }
+        internal bool Eat(Point food)
+        {
+            Point head = GetNextPoint();
+            if (head.IsHit(food))
+            {
+                food.sym = head.sym;
+                pList.Add(food);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
